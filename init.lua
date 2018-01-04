@@ -32,7 +32,7 @@ function add_ore(ore)
 	ore.spawn.ore = "ore:" .. ore.name
 
 	minetest.register_ore(ore.spawn)
-	
+
 --[[
 --Check for extention mods existance and if ore files call for them
 
@@ -47,6 +47,6 @@ function add_ore(ore)
 			--Call function for extended items and pass information		
 		end
 	end
-
+]]--
 
 end
