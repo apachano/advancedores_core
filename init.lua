@@ -1,35 +1,33 @@
-advancedores = {}
-
-function add_ore(ore)
+function advancedores_add_ore(ore)
 
 
 --Create items
 
-	minetest.register_node("ore:stone_with_" .. ore.name .. "_ore", {
+	minetest.register_node("advancedores_" .. ore.name .. ":stone_with_" .. ore.name .. "_ore", {
 		description = ore.name .. "ore",
 		tiles = {"default_stone.png^" .. ore.resources .. "/ore.png"},
 		is_ground_content = true,
 		groups = {cracky=2},
-		drop = 'ore:' .. ore.name,
+		drop = 'advancedores_" .. ore.name .. ":' .. ore.name,
 		sounds = default.node_sound_stone_defaults(),
 	})
-	minetest.register_craftitem("ore:" .. ore.name .. "_ore", {
+	minetest.register_craftitem("advancedores_" .. ore.name .. ":" .. ore.name .. "_ore", {
 		description = ore.name .. "_lump",
 		inventory_image = ore.resources .. "/lump.png",
 	})
-	minetest.register_craftitem("ore:" .. ore.name .. "_ingot", {
+	minetest.register_craftitem("advancedores_" .. ore.name .. ":" .. ore.name .. "_ingot", {
 		description = ore.name .. "_ingot",
 		inventory_image = ore.resources .. "/ingot.png",
 	})
 	minetest.register_craft({
 		type = "cooking",
-		output = "ore:" .. ore.name .. "_ingot",
-		recipe = "ore:" .. ore.name .. "_lump",
+		output = "advancedores_" .. ore.name .. ":" .. ore.name .. "_ingot",
+		recipe = "advancedores_" .. ore.name .. ":" .. ore.name .. "_lump",
 	})
 
 --Register ore for spawning
 
-	ore.spawn.ore = "ore:" .. ore.name
+	ore.spawn.ore = "advancedores_" .. ore.name .. ":" .. ore.name
 
 	minetest.register_ore(ore.spawn)
 
